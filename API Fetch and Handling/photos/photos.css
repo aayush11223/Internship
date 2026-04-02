@@ -1,0 +1,87 @@
+/* Global Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Body styling */
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Container styling */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Back to home link */
+.container a {
+    display: inline-block;
+    margin-bottom: 15px;
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.container a:hover {
+    color: #0056b3;
+}
+
+/* Page heading */
+.container h1 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #222;
+}
+
+/* Photos container */
+#photosContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Individual photo card */
+.card {
+    background-color: #fafafa;
+    border: 3px solid #ddd;
+    padding: 10px 15px;
+    border-radius: 6px;
+    width: 200px; /* slightly smaller for images */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+}
+
+/* Hover effect */
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+/* Photo styling */
+.card img {
+    width: 100%; /* image fits card width */
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+/* Card content */
+.card h3 {
+    font-size: 14px;
+    color: #007bff;
+    margin-bottom: 8px;
+}
