@@ -1,0 +1,32 @@
+ * {
+     margin: 0px;
+     padding: 0px;
+     background-color: blanchedalmond;
+
+ }
+
+ #whole-container {
+     margin: 50px 10px;
+     height: 100vh;
+     display: flex;
+ }
+
+ .rows {
+     display: flex;
+     flex: 1;
+ }
+
+ #first-task {
+     margin-bottom: 50px;
+     display: flex;
+     flex-direction: column;
+     flex: 1;
+ }
+
+ .flex-box {
+     border: 1px solid black;
+     display: flex;
+     flex: 1;
+     justify-content: center;
+     align-items: center;
+ }
