@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="game_container">
+        <h1>HANGMAN</h1>
+
+        <div class="stats">
+            <p class="written">Mistakes:</p>
+            <span id="wrongCount">
+                <p class="written">0</p>
+            </span>
+            <p class="written"> / 6</p>
+        </div>
+
+        <div id="guessed-label">
+            <p class="written"></p>
+        </div>
+        <div class="guessed-row" id="guessedRow"></div>
+
+        <div id="start-game">
+            <button id="start-btuuon" class="btn" onclick="generateLetter()">
+                <p class="written">Start a game</p>
+            </button>
+            <p class="written">Click to start a game</p>
+        </div>
+
+        <div id="input-row">
+            <input id="inp" class="btn" type="text" maxlength="1" placeholder="Enter a letter" />
+            <button id="guessBtn" class="btn" onclick="guessLetter()">
+                <p class="written">Guess</p>
+            </button>
+            <button id="newBtn" class="btn" onclick="generateLetter()">
+                <p class="written">New Game</p>
+            </button>
+        </div>
+
+        <div class="msg" id="msg">
+            <p class="written">Guess a letter to begin</p>
+        </div>
+        <div class="msg" id="game-over">
+            <p class="written"></p>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
