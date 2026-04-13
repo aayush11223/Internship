@@ -3,19 +3,19 @@
   padding: 0;
 }
 
-body {
-  background-color: #214b72;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+#whole-div {
   height: 100vh;
-  display: flex;
-  justify-content: center;
+  background-color: #214b72;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
   align-items: center;
+
+
 }
 
 #game_container {
   background-color: #235789;
-  height: 50vh;
-  width: 1000px;
+  height: 58vh;
   padding: 30px;
   flex-direction: column;
   display: flex;
@@ -44,21 +44,48 @@ body {
   gap: 15px;
 }
 
-#input-row{
+#input-row {
   flex-direction: row;
   display: flex;
   gap: 40px;
 }
 
-.btn{
-  background-color: #E0E0E0 ;
-  border: 1px solid #E0E0E0 ;
+.btn {
+  background-color: #E0E0E0;
+  border: 1px solid #E0E0E0;
   border-radius: 5px;
   padding: 10px;
 }
 
-#game-over{
+#game-over {
   color: rgb(114, 20, 20);
-  font-weight: 1000 ;
+  font-weight: 1000;
   font-size: 18px;
+}
+
+#you-won{
+  color:rgb(6, 58, 6);
+  font-weight: 1000;
+  font-size: 18px;
+}
+
+#dashboard_container {
+  height: 100vh;
+  margin-left: 25px;
+  background-color: #235789;
+  border: 2px solid #214b72;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+#username {
+  align-self: flex-start;
+  margin-left: 30px;
+}
+
+#score {
+  align-self: flex-start;
+  margin-left: 30px;
 }

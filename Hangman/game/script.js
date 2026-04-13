@@ -12,16 +12,19 @@ const letters = [
 let currentWord = "";
 let displayedWord = [];
 const maxLives = 6;
-let mistakes = 0;
+let mistakes = 1;
 let guessedLetters = [];
 const btn = document.getElementById("guessBtn");
 const input = document.getElementById("inp");
 btn.disabled = true;
-
+let score = 0;
 
 const generateLetter = () => {
 
-    document.getElementById("guessed-label").innerHTML = "";
+    guessedLetters = [];
+
+    document.getElementById("guessed-label").innerHTML = [];
+    document.getElementById("you-won").innerHTML = "";
 
     input.value = "";
     btn.disabled = false;
@@ -69,10 +72,36 @@ const guessLetter = () => {
         if (mistakes == 6) {
             document.getElementById("game-over").innerHTML = "GAME OVER, YOU LOOSE";
             btn.disabled = true;
+            document.getElementById("score").innerHTML = `<h2>Score: 0</h2>`;
         }
     }
 
+    // Right guess
     document.getElementById("guessedRow").innerHTML = displayedWord.join(" ");
     input.value = "";
+
+    if (!displayedWord.includes("_")) {
+        document.getElementById("you-won").innerHTML = "CONGRATULATIONS, YOU WON";
+        btn.disabled = true;
+
+        document.getElementById("score").innerHTML = `<h2>Score: ${++score}</h2>`;
+
+    }
+
+
+};
+
+
+
+
+
+
+
+
+
+
+window.onload = () => {
+    let token = JSON.parse(localStorage.getItem("token"));
+    document.getElementById("username").innerHTML = ` <h2>Welcome: ${token.username}</h2>`;
 };
 
