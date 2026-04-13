@@ -1,13 +1,20 @@
+let login = document.getElementById("login")
+login.addEventListener("click", () => {
+    window.location.href = "../login/login.html";
+})
+
 document.getElementById("signupForm").addEventListener("submit", (event) => {
     event.preventDefault();
 
     let inputUsername = document.getElementById("username").value.trim();
     let inputPassword = document.getElementById("password").value.trim();
+    let confirmPassword = document.getElementById("confirmPassword").value.trim();
 
-    registerUser(inputUsername, inputPassword);
+
+    registerUser(inputUsername, inputPassword, confirmPassword);
 });
 
-function registerUser(newUsername, newPassword) {
+function registerUser(newUsername, newPassword, confirmPassword) {
 
     // get stored users from localStorage
     let storedUsers = JSON.parse(localStorage.getItem("users")) || [];
@@ -19,6 +26,11 @@ function registerUser(newUsername, newPassword) {
         existingUser => existingUser.username === newUsername
     );
 
+    if (newPassword !== confirmPassword) {
+        showMessage("Password did not matched!", "red");
+        return;
+    }
+
     if (isUserTaken) {
         showMessage("Username already exists!", "red");
         return;
@@ -28,6 +40,7 @@ function registerUser(newUsername, newPassword) {
     let userObject = {
         username: newUsername,
         password: newPassword,
+        confirmPassword: confirmPassword
     };
 
     // add new user to array

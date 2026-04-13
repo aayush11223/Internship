@@ -1,3 +1,8 @@
+let signup = document.getElementById("signup");
+signup.addEventListener("click", ()=>{
+     window.location.href = "../signup/signup.html";
+})
+
 document.getElementById("loginForm").addEventListener("submit", (event) => {
     event.preventDefault();
 

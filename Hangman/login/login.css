@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(228, 163, 106);
+    height: 100vh;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container {
+    background-color: rgb(245, 185, 132);
+    border: 2px solid rgb(245, 185, 132);
+    border-radius: 10px;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 450px;
+    width: 300px;
+}
+
+.inbox {
+    border: 1px solid black;
+    border-radius: 3.5px;
+
+}
+
+#btns {
+    display: flex;
+    gap: 20px;
+}
+
+.btn {
+
+    height: 30px;
+    width: 60px;
+    display: block;
+    margin: 0 auto;
+    border: 1px solid;
+    border-radius: 3.5px;
+
+}

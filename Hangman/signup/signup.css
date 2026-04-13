@@ -31,7 +31,12 @@ body {
 
 }
 
-#btn {
+#btns{
+    display: flex;
+    gap: 20px;
+}
+
+.btn {
 
     height: 30px;
     width: 60px;
