@@ -1,7 +1,5 @@
 let login = document.getElementById("login")
-login.addEventListener("click", () => {
-    window.location.href = "../login/login.html";
-})
+
 
 document.getElementById("signupForm").addEventListener("submit", (event) => {
     event.preventDefault();

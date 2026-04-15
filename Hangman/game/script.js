@@ -1,107 +1,153 @@
-const letters = [
-    "JAVASCRIPT", "PYTHON", "JAVA", "KEYBOARD",
-    "KOTLIN", "DEVELOPER", "PROGRAMMING",
-    "COMPUTER", "SOFTWARE", "HARDWARE",
-    "ALGORITHM", "FUNCTION", "VARIABLE", "OBJECT",
-    "DATABASE", "NETWORK", "INTERNET", "COMPILER",
-    "DEBUGGER", "FRAMEWORK", "REACT", "ANGULAR",
-    "VUE", "PYCHARM", "GITHUB", "JQUERY", "TYPESCRIPT",
-    "NODEJS", "BOOTSTRAP", "MONGODB"
-];
-
-let currentWord = "";
+let currentWord = [];
 let displayedWord = [];
 const maxLives = 6;
-let mistakes = 1;
+let mistakes = 0;
 let guessedLetters = [];
 const btn = document.getElementById("guessBtn");
 const input = document.getElementById("inp");
-btn.disabled = true;
+const startGame = document.getElementById
+    ("start-game");
+const newbtn = document.getElementById("newBtn");
 let score = 0;
+const wrongSound = new Audio("sounds/fahhhhh.mp3");
+const rightSound = new Audio("sounds/tudum.mp3")
+const bgMusic = new Audio("sounds/Background.mp3");
+const congSound = new Audio("sounds/cong.mp3");
+const looseSound = new Audio("sounds/loose.mp3")
 
-const generateLetter = () => {
 
+bgMusic.loop = true;
+
+
+input.style.display = "none";
+newbtn.style.display = "none";
+
+input.addEventListener("click", () => {
+    input.placeholder = ""
+});
+
+
+const updateLivesBar = () => {
+    const dots = document.querySelectorAll(".life");
+    dots.forEach((dot, i) => {
+        dot.classList.toggle("lost", i < mistakes);
+    });
+};
+
+const showPopup = (won) => {
+    const overlay = document.getElementById("popup-overlay");
+    document.getElementById("popup-icon").textContent = won ? "🎉" : "💀";
+    if (won) {
+        congSound.play();
+    } else {
+        looseSound.play();
+    }
+    document.getElementById("popup-title").textContent = won ? "You won!" : "Game over";
+    document.getElementById("popup-title").className = "popup-title " + (won ? "win" : "lose");
+    document.getElementById("popup-word").innerHTML =
+        `The word was <span>${currentWord.join("")}</span>`;
+    overlay.classList.add("show");
+};
+
+const closePopup = () => {
+    document.getElementById("popup-overlay").classList.remove("show");
+    generateLetter();
+};
+
+const fetchWords = async () => {
+    try {
+        const response = await fetch("https://www.wordgamedb.com/api/v2/words/random");
+        const data = await response.json();
+        document.getElementById("hint").textContent = "Hint: " + data.hint;
+        return data.word.toUpperCase();
+    } catch (error) {
+        console.error("API error, using fallback word:", error);
+        document.getElementById("hint").textContent = "";
+        const fallback = ["JAVASCRIPT", "PYTHON", "DEVELOPER", "ALGORITHM", "DATABASE"];
+        return fallback[Math.floor(Math.random() * fallback.length)];
+    }
+};
+
+const generateLetter = async () => {
     guessedLetters = [];
-
-    document.getElementById("guessed-label").innerHTML = [];
-    document.getElementById("you-won").innerHTML = "";
-
-    input.value = "";
-    btn.disabled = false;
     mistakes = 0;
 
-    document.getElementById("wrongCount").innerHTML = 0;
-    document.getElementById("game-over").innerHTML = "";
+    bgMusic.play();
+    startGame.style.display = "none";
+    input.style.display = "flex";
+    newbtn.style.display = "flex";
 
-    const word = letters[Math.floor(Math.random() * letters.length)];
+    document.getElementById("guessed-label").textContent = "";
+    document.getElementById("wrongCount").textContent = 0;
+    document.getElementById("msg").innerHTML = "<p>Guess a letter</p>";
+    document.getElementById("popup-overlay").classList.remove("show");
+    updateLivesBar();
+    input.value = "";
 
+    const word = await fetchWords();
     currentWord = word.split("");
-    console.log(currentWord);
-
     displayedWord = currentWord.map(() => "_");
-
-    document.getElementById("guessedRow").innerHTML =
-        displayedWord.join(" ");
+    document.getElementById("guessedRow").textContent = displayedWord.join("  ");
+    btn.disabled = false;
+    input.focus();
 };
 
 const guessLetter = () => {
-
-
-    const letter = input.value.toUpperCase();
-
-    if (!guessedLetters.includes(letter)) {
-        guessedLetters.push(letter);
-    }
-
-    //showing guessed letters
-    document.getElementById("guessed-label").innerHTML = `<p class="written">Guessed Letters: ${guessedLetters.join(", ")}</p>`;
-
-    let flag = 0;
-    for (let i = 0; i < currentWord.length; i++) {
-        if (letter === currentWord[i]) {
-            displayedWord[i] = letter;
-            flag = 1;
-        }
-    }
-
-    // Wrong guess
-    if (flag === 0) {
-        mistakes++;
-        document.getElementById("wrongCount").innerHTML = mistakes;
-
-        if (mistakes == 6) {
-            document.getElementById("game-over").innerHTML = "GAME OVER, YOU LOOSE";
-            btn.disabled = true;
-            document.getElementById("score").innerHTML = `<h2>Score: 0</h2>`;
-        }
-    }
-
-    // Right guess
-    document.getElementById("guessedRow").innerHTML = displayedWord.join(" ");
+    const letter = input.value.toUpperCase().trim();
     input.value = "";
 
-    if (!displayedWord.includes("_")) {
-        document.getElementById("you-won").innerHTML = "CONGRATULATIONS, YOU WON";
-        btn.disabled = true;
+    if (!letter || guessedLetters.includes(letter)) return;
 
-        document.getElementById("score").innerHTML = `<h2>Score: ${++score}</h2>`;
+    guessedLetters.push(letter);
+    document.getElementById("guessed-label").textContent =
+        "Guessed: " + guessedLetters.join(", ");
 
+    let correct = false;
+    for (let i = 0; i < currentWord.length; i++) {
+        if (letter === currentWord[i]) {
+            rightSound.currentTime = 0;
+            rightSound.play();
+            displayedWord[i] = letter;
+            correct = true;
+        }
     }
 
+    if (!correct) {
+        mistakes++;
 
+        wrongSound.currentTime = 0;
+        wrongSound.play();
+
+        document.getElementById("wrongCount").textContent = mistakes;
+        updateLivesBar();
+        if (mistakes >= maxLives) {
+            btn.disabled = true;
+            score = 0;
+            document.getElementById("score").innerHTML = `<h2>Score: ${score}</h2>`;
+            showPopup(false);
+            return;
+        }
+    }
+
+    document.getElementById("guessedRow").textContent = displayedWord.join("  ");
+
+    if (!displayedWord.includes("_")) {
+        btn.disabled = true;
+        document.getElementById("score").innerHTML = `<h2>Score: ${++score}</h2>`;
+        showPopup(true);
+    }
 };
 
-
-
-
-
-
-
-
-
+input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && !btn.disabled) guessLetter();
+});
 
 window.onload = () => {
-    let token = JSON.parse(localStorage.getItem("token"));
-    document.getElementById("username").innerHTML = ` <h2>Welcome: ${token.username}</h2>`;
+    try {
+        const token = JSON.parse(localStorage.getItem("token"));
+        document.getElementById("username").innerHTML =
+            `<h2>Welcome: ${token.username}</h2>`;
+    } catch {
+        document.getElementById("username").innerHTML = `<h2>Welcome!</h2>`;
+    }
 };
-

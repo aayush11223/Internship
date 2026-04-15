@@ -12,67 +12,70 @@
 
     <div id="whole-div">
         <div id="game_container">
-            <h1>HANGMAN</h1>
 
-            <div class="stats">
-                <p class="written">Mistakes:</p>
-                <span id="wrongCount">
-                    <p class="written">0</p>
-                </span>
-                <p class="written"> / 6</p>
+            <div class="gc-top">
+                <h1>HANGMAN</h1>
+                <div class="gc-stats">
+                    <div class="mistakes-row">Mistakes: <span id="wrongCount">0</span> / 6</div>
+                    <div class="lives-bar" id="livesBar">
+                        <div class="life"></div>
+                        <div class="life"></div>
+                        <div class="life"></div>
+                        <div class="life"></div>
+                        <div class="life"></div>
+                        <div class="life"></div>
+                    </div>
+                </div>
             </div>
 
-            <div id="guessed-label">
-
-            </div>
-            <div class="guessed-row" id="guessedRow"></div>
-
-            <div id="start-game">
-                <button id="start-btuuon" class="btn" onclick="generateLetter()">
-                    <p class="written">Start a game</p>
-                </button>
-                <p class="written">Click to start a game</p>
+            <div class="gc-stage">
+                <div id="guessedRow"></div>
+                <div id="hint"></div>
+                <div id="guessed-label"></div>
+                <div class="msg" id="msg">
+                    <p>Click "Start a game" to begin</p>
+                </div>
             </div>
 
-            <div id="input-row">
-                <input id="inp" class="btn" type="text" maxlength="1" placeholder="Enter a letter" />
-                <button id="guessBtn" class="btn" onclick="guessLetter()">
-                    <p class="written">Guess</p>
-                </button>
-                <button id="newBtn" class="btn" onclick="generateLetter()">
-                    <p class="written">New Game</p>
-                </button>
-            </div>
+            <div class="gc-bottom">
+                <div id="start-game">
+                    <button id="start-btuuon" class="btn" onclick="generateLetter()">
+                        Start a game
+                    </button>
+                    <p>Click to start a game</p>
+                </div>
 
-            <div class="msg" id="msg">
-                <p class="written">Guess a letter to begin</p>
-            </div>
-
-            <div class="msg" id="game-over">
-
-            </div>
-
-            <div id="you-won">
-
+                <div id="input-row">
+                    <input id="inp" type="text" maxlength="1" placeholder="Enter a word" />
+                    <button id="guessBtn" class="btn" onclick="guessLetter()">
+                        <p>Guess</p>
+                    </button>
+                    <button id="newBtn" class="btn" onclick="generateLetter()">
+                        <p>New game</p>
+                    </button>
+                </div>
             </div>
 
         </div>
 
         <div id="dashboard_container">
-
             <div id="dashboard">
-                <h1 id="dash">Dashboard</h1>
+                <h1 id="dash">Leaderboard</h1>
             </div>
-
-            <div id="username">
-
-            </div>
-
+            <div class="dash-divider"></div>
+            <div id="username"></div>
             <div id="score">
                 <h2>Score: 0</h2>
             </div>
+        </div>
+    </div>
 
-
+    <div id="popup-overlay">
+        <div class="popup-box">
+            <div class="popup-icon" id="popup-icon"></div>
+            <div class="popup-title" id="popup-title"></div>
+            <div class="popup-word" id="popup-word"></div>
+            <button class="popup-btn" onclick="closePopup()">Play again</button>
         </div>
     </div>
 

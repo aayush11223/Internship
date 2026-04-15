@@ -9,22 +9,32 @@
 
 <body>
 
-    <div id="container">
-        <h2>Login</h2>
-        <form id="loginForm">
-            <input type="text" class="inbox" id="username" placeholder="Enter Username" required><br><br>
+    <div id="whole-container">
 
-            <input type="password" class="inbox" id="password" placeholder="Enter Password" required><br><br>
-
-            <div id="btns">
-                <button type="submit" class="btn">Login</button>
-                <button type="button" class="btn" id="signup">Signup </button>
+        <div id="images">
+            <div id="image">
+                <h1>LOGIN PAGE</h1>
             </div>
+        </div>
 
-        </form>
+        <div id="container">
+            <h2>Login</h2>  <br><br><br>
+            <form id="loginForm">
+                <input type="text" class="inbox" id="username" placeholder="Enter Username" required><br><br><br>
+
+                <input type="password" class="inbox" id="password" placeholder="Enter Password" required><br><br><br>
+
+                <div id="btns">
+                    <button type="submit" class="btn">Login</button>
+                    <a href="http://127.0.0.1:5500/signup/signup.html">Signup</a>
+                    <p id="message"></p>
+                </div>
+
+            </form>
+        </div>
     </div>
 
-    <p id="message"></p>
+
 
     <script src="login.js"></script>
 

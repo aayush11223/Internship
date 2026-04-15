@@ -8,26 +8,53 @@
 
 <body>
 
-    <div id="container">
+    <div id="whole_container">
 
-        <h2>Signup</h2>
+        <div id="images">
+            <div id="image">
+                <p id="msg">Nice to see you again</p> <br>
+                <h1>WELCOME BACK</h1> <br><br><br><br>
+                <div class="introduction">
+                    <p id="intro">A signup form is a user interface that allows new users to create an account by
+                        entering
+                        their details. It typically collects information like username, email, and password for
+                        registration. It helps websites securely store user data and provide personalized access to
+                        services.</p>
+                </div>
 
-        <form id="signupForm">
-            <input type="text" class="inbox" id="username" placeholder="Enter Username" required><br><br>
-
-            <input type="password" class="inbox" id="password" placeholder="Enter Password" required><br><br>
-
-            <input type="password" class="inbox" id="confirmPassword" placeholder="Confirm Password" required><br><br>
-
-            <div id="btns">
-                <button type="submit" class="btn">Signup</button>
-                <button type="button" class="btn" id="login">Login</button>
             </div>
+        </div>
 
-        </form>
+        <div id="container">
+            <h2>Signup Account</h2> <br>
+            <div class="introduction">
+                <p id="intro" style="color:#e5eaf8; background-color: #ffff;">A signup form is a user interface that allows new users to create an account by
+                    entering
+                    their details. It typically collects information like username, email, and password for
+                    registration. It helps websites securely store user data and provide personalized access to
+                    services.</p>
+            </div> <br><br><br>
+
+            <form id="signupForm">
+                <input type="text" class="inbox" id="username" placeholder="Enter Username" required><br><br><br>
+
+                <input type="password" class="inbox" id="password" placeholder="Enter Password" required><br><br><br>
+
+                <input type="password" class="inbox" id="confirmPassword" placeholder="Confirm Password"
+                    required><br><br><br>
+
+                <div id="btns">
+                    <button type="submit" class="btn">Signup</button>
+                    <a href="http://127.0.0.1:5500/login/login.html">Login</a>
+                    <p id="message"></p>
+
+                </div>
+
+            </form>
+        </div>
+
+
     </div>
-
-    <p id="message"></p>
 
     <script src="signup.js"></script>
 
