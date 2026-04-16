@@ -28,12 +28,21 @@
                 </div>
             </div>
 
-            <div class="gc-stage">
-                <div id="guessedRow"></div>
-                <div id="hint"></div>
-                <div id="guessed-label"></div>
-                <div class="msg" id="msg">
-                    <p>Click "Start a game" to begin</p>
+            <div id="gameplay">
+                <div id="whole_gc">
+
+                    <div class="gc-stage">
+                        <div id="guessedRow"></div>
+                        <div id="hint"></div>
+                        <div id="guessed-label"></div>
+                        <div class="msg" id="msg">
+                            <p>Click "Start a game" to begin</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="photo">
+
                 </div>
             </div>
 
@@ -47,26 +56,30 @@
 
                 <div id="input-row">
                     <input id="inp" type="text" maxlength="1" placeholder="Enter a word" />
-                    <button id="guessBtn" class="btn" onclick="guessLetter()">
-                        <p>Guess</p>
-                    </button>
-                    <button id="newBtn" class="btn" onclick="generateLetter()">
-                        <p>New game</p>
-                    </button>
+                    <button id="guessBtn" class="btn" onclick="guessLetter()">Guess</button>
+                    <button id="newBtn" class="btn" onclick="generateLetter()">New game</button>
                 </div>
             </div>
 
         </div>
 
         <div id="dashboard_container">
+
+            <div id="logout_btn">
+                <button id="logout" class="btn">Logout</button>
+
+            </div> <br>
             <div id="dashboard">
                 <h1 id="dash">Leaderboard</h1>
+
             </div>
             <div class="dash-divider"></div>
-            <div id="username"></div>
-            <div id="score">
-                <h2>Score: 0</h2>
+
+            <div id="user_score">
+                <div id="username"></div>
+                <div id="score"></div>
             </div>
+
         </div>
     </div>
 

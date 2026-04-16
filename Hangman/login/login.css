@@ -4,14 +4,17 @@
 }
 
 #whole-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    height: 100vh;
+    width: 100%;
+
 }
 
 #images {
-    height: 100vh;
+    flex: 1;
     background-image: url(../images/img3.jpg);
     background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
@@ -36,9 +39,11 @@ a {
 h2 {
     font-size: xx-large;
     color: rgb(7, 120, 165);
+    margin-bottom: 40px;
 }
 
 #container {
+    flex: 1;
     flex-direction: column;
     display: flex;
     justify-content: center;
@@ -80,6 +85,68 @@ h2 {
     display: inline-block;
     font-size: 18px;
     font-weight: 100;
+}
 
+@media (max-width: 768px) {
+    #whole-container {
+        flex-direction: column;
+        height: auto;
+        align-items: center;
+        justify-content: center;
+    }
 
+    #images {
+        height: 35vh;
+        flex: none;
+        width: 100%;
+        align-content: center;
+    }
+
+    #image h1 {
+        font-size: 36px;
+        letter-spacing: 5px;
+    }
+
+    #container {
+        flex: none;
+        width: 100%;
+        padding: 40px 20px;
+    }
+
+    .inbox,
+    .btn {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    #image h1 {
+        font-size: 26px;
+        letter-spacing: 3px;
+    }
+
+    h2 {
+        font-size: x-large;
+    }
+
+    #images {
+        height: 50vh;
+        width: 100%;
+    }
+
+    .inbox {
+        height: 44px;
+        width: 100%;
+        font-size: 16px;
+    }
+
+    .btn {
+         height: 44px;
+        width: 100%;
+        font-size: 16px;
+    }
+
+    #btns a {
+        font-size: 16px;
+    }
 }

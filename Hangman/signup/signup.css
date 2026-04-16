@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -10,17 +11,16 @@ body {
 }
 
 #whole_container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    height: 100vh;
+    width: 100%;
     background-color: white;
     box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.33);
-    height: 80vh;
-    width: 80%;
     margin: 70px;
-
 }
 
 #images {
+    flex: 1;
     height: 100%;
     background-image: url(../images/img3.jpg);
     background-size: cover;
@@ -28,14 +28,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
-#image{
+#image {
     flex-direction: column;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 
 #image h1 {
@@ -43,7 +43,7 @@ body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 50px;
     letter-spacing: 8px;
-
+    text-align: center;
 }
 
 h2 {
@@ -51,29 +51,30 @@ h2 {
     color: #097ff4;
 }
 
-#msg{
+#msg {
     color: white;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 20px;
 }
 
-.introduction{
+.introduction {
     width: 300px;
-   
 }
 
-#intro{
+#intro {
     color: white;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 10px;
 }
 
 #container {
+    flex: 1;
     background-color: #ffffff;
     flex-direction: column;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 40px 20px;
 }
 
 .inbox {
@@ -83,8 +84,6 @@ h2 {
     width: 350px;
     padding-left: 10px;
     align-items: center;
-
-
 }
 
 #btns {
@@ -103,7 +102,7 @@ h2 {
     margin: 0 auto;
     border: 1px solid;
     border-radius: 999px;
-
+    cursor: pointer;
 }
 
 #btns a {
@@ -111,6 +110,102 @@ h2 {
     display: inline-block;
     font-size: 18px;
     font-weight: 100;
+}
 
 
+@media (max-width: 768px) {
+    body {
+        padding: 0;
+    }
+
+    #whole_container {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+        margin: 20px;
+    }
+
+    #images {
+        flex: none;
+        height: 40vh;
+        width: 100%;
+    }
+
+    #image h1 {
+        font-size: 36px;
+        letter-spacing: 5px;
+    }
+
+    #msg {
+        font-size: 16px;
+    }
+
+    .introduction {
+        width: 100%;
+    }
+
+    #container {
+        flex: none;
+        width: 100%;
+        height: auto;
+        padding: 30px 20px;
+    }
+
+    .inbox,
+    .btn {
+      border: 1px solid black;
+    border-radius: 5px;
+    height: 25px;
+    width: 350px;
+    padding-left: 10px;
+    align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    #whole_container {
+        margin: 0;
+        box-shadow: none;
+    }
+
+    #images {
+        height: 30vh;
+    }
+
+    #image h1 {
+        font-size: 24px;
+        letter-spacing: 3px;
+    }
+
+    #msg {
+        font-size: 13px;
+    }
+
+    #intro {
+        font-size: 9px;
+    }
+
+    h2 {
+        font-size: large;
+    }
+
+    .inbox {
+        height: 44px;
+        width: 100%;
+        font-size: 16px;
+    }
+
+    .btn {
+        height: 44px;
+        width: 100%;
+        font-size: 16px;
+    }
+
+    #btns a {
+        font-size: 15px;
+    }
+
+    #container {
+        padding: 20px 15px;
+    }
 }
