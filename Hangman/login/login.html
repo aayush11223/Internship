@@ -4,7 +4,7 @@
 <head>
     <title>Login Form</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- ← ADD THIS -->
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="./login.css">
 </head>
 
 <body>
@@ -13,20 +13,20 @@
 
         <div id="images">
             <div id="image">
-                <h1>LOGIN PAGE</h1>
+                <h1 id="loginPage">LOGIN PAGE</h1>
             </div>
         </div>
 
         <div id="container">
-            <h2>Login</h2>
+            <h2 id="formTitle">Login</h2>
             <form id="loginForm">
                 <input type="text" class="inbox" id="username" placeholder="Enter Username" required><br><br><br>
 
                 <input type="password" class="inbox" id="password" placeholder="Enter Password" required><br><br><br>
 
                 <div id="btns">
-                    <button type="submit" class="btn">Login</button>
-                    <a href="../signup/signup.html">Signup</a>
+                    <button type="submit" class="btn" id="loginBtn">Login</button>
+                    <a href="#" id="toggleAuth">Signup</a>
                     <p id="message"></p>
                 </div>
 
@@ -36,7 +36,7 @@
 
 
 
-    <script src="login.js"></script>
+    <script src="./login.js"></script>
 
 </body>
 

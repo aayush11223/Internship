@@ -87,25 +87,19 @@ h2 {
     font-weight: 100;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 960px) {
     #whole-container {
         flex-direction: column;
-        height: auto;
+        height: 100vh;
+        display: flex;
         align-items: center;
         justify-content: center;
     }
 
     #images {
-        height: 35vh;
-        flex: none;
-        width: 100%;
-        align-content: center;
+        display: none;
     }
 
-    #image h1 {
-        font-size: 36px;
-        letter-spacing: 5px;
-    }
 
     #container {
         flex: none;
@@ -119,34 +113,35 @@ h2 {
     }
 }
 
-@media (max-width: 480px) {
-    #image h1 {
-        font-size: 26px;
-        letter-spacing: 3px;
-    }
-
-    h2 {
-        font-size: x-large;
+@media (max-width: 400px) {
+    #whole-container {
+        flex-direction: column;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     #images {
-        height: 50vh;
-        width: 100%;
+        display: none;
     }
 
-    .inbox {
-        height: 44px;
+#loginForm{
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    #container {
+        flex: none;
         width: 100%;
-        font-size: 16px;
+        padding: 30px 20px;
     }
 
+    .inbox,
     .btn {
-         height: 44px;
-        width: 100%;
-        font-size: 16px;
-    }
-
-    #btns a {
-        font-size: 16px;
+        max-width: 70%;
     }
 }
+
