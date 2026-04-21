@@ -45,9 +45,7 @@ body {
 .gc-top {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   padding-bottom: 24px;
-  padding-right: 110px;
   border-bottom: 1px solid rgba(240, 248, 255, 0.08);
 }
 
@@ -60,6 +58,7 @@ body {
 
 .gc-stats {
   display: flex;
+  margin-left: 90px;
   flex-direction: column;
   align-items: flex-end;
   gap: 6px;
@@ -241,10 +240,7 @@ body {
 }
 
 #logout_btn {
-  position: fixed;
-  top: 24px;
-  right: 24px;
-  z-index: 50;
+  margin-left: auto;
 }
 
 #dash {
@@ -340,96 +336,127 @@ body {
 }
 
 
-@media (max-width: 900px) {
+
+@media (max-width: 1554px) {
+
   #whole-div {
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
   }
 
-  #game_container {
-    border-right: none;
-    border-bottom: 1px solid rgba(240, 248, 255, 0.12);
-    min-height: unset;
-    padding: 74px 20px 24px;
-  }
-
-  .gc-top {
-    padding-right: 0;
-  }
-
-  .photo {
-    height: 100%;
-    width: 30%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-
+  #game_container,
   #dashboard_container {
-    min-height: unset;
-    padding: 70px 24px 32px;
-  }
-}
-
-
-
-@media (max-width: 480px) {
-
-  .gc-top h1,
-  #dash {
-    font-size: 1.3rem;
-    letter-spacing: 3px;
+    padding: 30px 20px;
   }
 
-  #guessedRow {
-    font-size: 1.6rem;
-    letter-spacing: 8px;
-  }
+  
 
-  #hint,
-  #guessed-label {
-    font-size: 18px;
-  }
-
-  .msg {
-    font-size: 20px;
-  }
-
-  #start-game {
-    flex-direction: column;
-    gap: 10px;
-    padding: 0;
-    align-items: stretch;
-  }
-
-  #start-btuuon {
+  #whole_gc {
     width: 100%;
   }
 
   .photo {
-    height: 100%;
-    width: 30%;
+    height: 100vh;
+    width: 100%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    align-self: center;
+  }
+
+  .gc-top {
+    gap: 15px;
+  }
+
+  .gc-stats {
+    margin-left: 0;
+  }
+
+  #logout_btn {
+    margin-left: auto;
+  }
+
+  #start-game {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 0;
+  }
+
+  #input-row {
+    flex-wrap: wrap;
   }
 
   #inp {
-    width: 55%;
-    font-size: 15px;
-  }
-
-  .btn {
-    padding: 9px 14px;
-    font-size: 13px;
-  }
-
-  .popup-box {
-    padding: 28px 20px;
-  }
-
-  #username,
-  #score {
-    font-size: 18px;
+    width: 100%;
   }
 }
+
+
+@media (max-width: 840px) {
+
+  #gameplay{
+    flex-direction: column;
+  }
+
+  .photo {
+    height: 100vh;
+    width: 480px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    align-self: center;
+  }
+
+
+
+  #game_container,
+  #dashboard_container {
+    padding: 20px 15px;
+  }
+
+  #guessedRow {
+    font-size: 1.8rem;
+    letter-spacing: 8px;
+  }
+
+  #input-row {
+    flex-direction: column;
+  }
+
+  #guessBtn,
+  #newBtn,
+  #start-btuuon,
+  #logout {
+    width: 100%;
+  }
+}
+
+
+@media (max-width: 480px) {
+
+  .photo {
+    height: 100vh;
+    width: 300px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    align-self: center;
+  }
+
+  .gc-top{
+    gap: 14px;
+  }
+
+  #guessedRow {
+    font-size: 1.4rem;
+    letter-spacing: 5px;
+  }
+
+  .gc-top h1,
+  #dash {
+    font-size: 1.2rem;
+  }
+}
+
+
+
